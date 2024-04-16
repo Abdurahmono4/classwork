@@ -1,5 +1,42 @@
-function App() {
-  return <div></div>;
-}
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-export default App;
+//layout
+import MainLayout from "./layout/MainLayout";
+
+//pages
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+
+import Signin from "./pages/Signin";
+import Signup from "./pages/Signup";
+
+//component
+import ProtectedRote from "./components/ProtectedRote";
+export default function App() {
+  const routes = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <ProtectedRote user={true}>
+          <MainLayout />{" "}
+        </ProtectedRote>
+      ),
+      children: [
+        { index: true, element: <Home /> },
+        // { path: "/about", element: <About /> },
+        // { path: "/contact", element: <Contact /> },
+        // { path: "*", element: <NotFound /> },
+      ],
+    },
+    {
+      path: "/signin",
+      element: <Signin />,
+    },
+    {
+      path: "/signup",
+      element: <Signup />,
+    },
+  ]);
+  return <RouterProvider router={routes} />;
+}
