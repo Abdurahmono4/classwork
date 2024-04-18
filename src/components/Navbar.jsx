@@ -2,12 +2,12 @@ import Navlinks from "./Navlinks";
 import { Link } from "react-router-dom";
 
 import { useContext } from "react";
-import { GlobalContext } from "../context/useGlobalContext";
+import { GlobalContextProvider } from "../context/useGlobalContext";
 
 function Navbar() {
-  const { a } = useContext(GlobalContext);
+  const { data } = useContext(GlobalContextProvider);
+  console.log(data);
 
-  console.log(a);
   return (
     <div>
       <div className="navbar bg-base-300 align-element">
@@ -19,8 +19,7 @@ function Navbar() {
             <button
               tabIndex={0}
               role="button"
-              className="btn m-1 dropdown-toggle  btn btn-primary lg:hidden  "
-              data-bs-toggle="dropdown"
+              className="btn m-1 dropdown-toggle btn-primary lg:hidden  "
             >
               MyGoo
             </button>
