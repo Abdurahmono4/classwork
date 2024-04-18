@@ -5,9 +5,9 @@ import { useContext } from "react";
 import { GlobalContext } from "../context/useGlobalContext";
 
 function Navbar() {
-  const data = useContext(GlobalContext);
+  const { a } = useContext(GlobalContext);
 
-  console.log(data);
+  console.log(a);
   return (
     <div>
       <div className="navbar bg-base-300 align-element">
