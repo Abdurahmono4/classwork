@@ -1,5 +1,7 @@
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
 function Signup() {
-  return <div>SignUp</div>;
+  return <div>Signup</div>;
 }
 
 export default Signup;

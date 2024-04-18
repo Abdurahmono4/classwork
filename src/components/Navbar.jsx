@@ -1,6 +1,13 @@
 import Navlinks from "./Navlinks";
 import { Link } from "react-router-dom";
+
+import { useContext } from "react";
+import { GlobalContext } from "../context/useGlobalContext";
+
 function Navbar() {
+  const data = useContext(GlobalContext);
+
+  console.log(data);
   return (
     <div>
       <div className="navbar bg-base-300 align-element">
